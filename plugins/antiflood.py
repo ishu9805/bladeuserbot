@@ -18,11 +18,11 @@ from pyUltroid.dB import DEVLIST
 from pyUltroid.dB.antiflood_db import get_flood, get_flood_limit, rem_flood, set_flood
 from pyUltroid.fns.admins import admin_check
 
-from . import Button, Redis, asst, callback, eod, get_string, ultroid_bot, ultroid_cmd
+from . import Button, Paltan, asst, callback, eod, get_string, ultroid_bot, ultroid_cmd
 
 _check_flood = {}
 
-if Redis("ANTIFLOOD"):
+if Paltan("ANTIFLOOD"):
 
     @ultroid_bot.on(
         NewMsg(
@@ -55,7 +55,7 @@ if Redis("ANTIFLOOD"):
                 del _check_flood[event.chat_id]
                 await event.reply(f"#AntiFlood\n\n{get_string('antiflood_3')}")
                 await asst.send_message(
-                    int(Redis("LOG_CHANNEL")),
+                    int(Paltan("LOG_CHANNEL")),
                     f"#Antiflood\n\n`Muted `[{name}](tg://user?id={event.sender_id})` in {chat}`",
                     buttons=Button.inline(
                         "Unmute", data=f"anti_{event.sender_id}_{event.chat_id}"
