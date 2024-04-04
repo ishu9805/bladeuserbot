@@ -10,7 +10,7 @@ if run_as_module:
     from ..configs import Var
 
 
-
+Paltan = MongoClient = psycopg2 = Database = None
 if Var.MONGO_URI:
     try:
         from pymongo import MongoClient
