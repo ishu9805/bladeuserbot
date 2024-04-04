@@ -1,9 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 from importlib import util
 from sys import modules
@@ -77,7 +71,6 @@ def load_addons(plugin_name):
     mod.ultroid_cmd = ultroid_cmd
     mod.on_cmd = ultroid_cmd
     mod.callback = callback
-    mod.Redis = udB.get_key
     mod.admin_cmd = admin_cmd
     mod.sudo_cmd = sudo_cmd
     mod.HELP = HELP.get("Addons", {})
