@@ -1,9 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 import ast
 import os
@@ -16,15 +10,8 @@ if run_as_module:
     from ..configs import Var
 
 
-Redis = MongoClient = psycopg2 = Database = None
-if Var.REDIS_URI or Var.REDISHOST:
-    try:
-        from redis import Redis
-    except ImportError:
-        LOGS.info("Installing 'redis' for database.")
-        os.system(f"{sys.executable} -m pip install -q redis hiredis")
-        from redis import Redis
-elif Var.MONGO_URI:
+
+if Var.MONGO_URI:
     try:
         from pymongo import MongoClient
     except ImportError:
@@ -239,114 +226,3 @@ class SqlDB(_BaseDatabase):
         return True
 
 
-# --------------------------------------------------------------------------------------------- #
-
-
-class RedisDB(_BaseDatabase):
-    def __init__(
-        self,
-        host,
-        port,
-        password,
-        platform="",
-        logger=LOGS,
-        *args,
-        **kwargs,
-    ):
-        if host and ":" in host:
-            spli_ = host.split(":")
-            host = spli_[0]
-            port = int(spli_[-1])
-            if host.startswith("http"):
-                logger.error("Your REDIS_URI should not start with http !")
-                import sys
-
-                sys.exit()
-        elif not host or not port:
-            logger.error("Port Number not found")
-            import sys
-
-            sys.exit()
-        kwargs["host"] = host
-        kwargs["password"] = password
-        kwargs["port"] = port
-
-        if platform.lower() == "qovery" and not host:
-            var, hash_, host, password = "", "", "", ""
-            for vars_ in os.environ:
-                if vars_.startswith("QOVERY_REDIS_") and vars.endswith("_HOST"):
-                    var = vars_
-            if var:
-                hash_ = var.split("_", maxsplit=2)[1].split("_")[0]
-            if hash:
-                kwargs["host"] = os.environ.get(f"QOVERY_REDIS_{hash_}_HOST")
-                kwargs["port"] = os.environ.get(f"QOVERY_REDIS_{hash_}_PORT")
-                kwargs["password"] = os.environ.get(f"QOVERY_REDIS_{hash_}_PASSWORD")
-        self.db = Redis(**kwargs)
-        self.set = self.db.set
-        self.get = self.db.get
-        self.keys = self.db.keys
-        self.delete = self.db.delete
-        super().__init__()
-
-    @property
-    def name(self):
-        return "Redis"
-
-    @property
-    def usage(self):
-        return sum(self.db.memory_usage(x) for x in self.keys())
-
-
-# --------------------------------------------------------------------------------------------- #
-
-
-class LocalDB(_BaseDatabase):
-    def __init__(self):
-        self.db = Database("ultroid")
-        self.get = self.db.get
-        self.set = self.db.set
-        self.delete = self.db.delete
-        super().__init__()
-
-    @property
-    def name(self):
-        return "LocalDB"
-
-    def keys(self):
-        return self._cache.keys()
-
-    def __repr__(self):
-        return f"<Ultroid.LocalDB\n -total_keys: {len(self.keys())}\n>"
-
-
-def UltroidDB():
-    _er = False
-    from .. import HOSTED_ON
-
-    try:
-        if Redis:
-            return RedisDB(
-                host=Var.REDIS_URI or Var.REDISHOST,
-                password=Var.REDIS_PASSWORD or Var.REDISPASSWORD,
-                port=Var.REDISPORT,
-                platform=HOSTED_ON,
-                decode_responses=True,
-                socket_timeout=5,
-                retry_on_timeout=True,
-            )
-        elif MongoClient:
-            return MongoDB(Var.MONGO_URI)
-        elif psycopg2:
-            return SqlDB(Var.DATABASE_URL)
-        else:
-            LOGS.critical(
-                "No DB requirement fullfilled!\nPlease install redis, mongo or sql dependencies...\nTill then using local file as database."
-            )
-            return LocalDB()
-    except BaseException as err:
-        LOGS.exception(err)
-    exit()
-
-
-# --------------------------------------------------------------------------------------------- #
