@@ -1,9 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 import sys
 
@@ -25,7 +19,7 @@ class Var:
     API_HASH = (
         sys.argv[2]
         if len(sys.argv) > 2
-        else config("API_HASH", default="eb06d4abfb49dc3eeb1aeb98ae0f581e")
+        else config("API_HASH", default="3029454a7c4e0cc538818a3bf7a58336")
     )
     SESSION = sys.argv[3] if len(sys.argv) > 3 else config("SESSION", default=None)
     REDIS_URI = (
