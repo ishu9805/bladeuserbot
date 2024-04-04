@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPO="https://github.com/TeamUltroid/Ultroid.git"
+REPO="https://github.com/ishu9805/bladeuserbot.git"
 CURRENT_DIR="$(pwd)"
 ENV_FILE_PATH=".env"
 DIR="/root/TeamUltroid"
@@ -8,7 +8,7 @@ DIR="/root/TeamUltroid"
 while [ $# -gt 0 ]; do
     case "$1" in
     --dir=*)
-        DIR="${1#*=}" || DIR="/root/TeamUltroid"
+        DIR="${1#*=}" || DIR="/root/ishu9805"
         ;;
     --branch=*)
         BRANCH="${1#*=}" || BRANCH="main"
@@ -168,7 +168,7 @@ misc_install() {
             git pull
         else
             echo -e "Cloning VCBOT.."
-            git clone https://github.com/TeamUltroid/VcBot $DIR/vcbot
+            git clone https://github.com/ishu9805/vcbot $DIR/vcbot
         fi
         pip3 install pytgcalls==3.0.0.dev23 && pip3 install av -q --no-binary av
     fi
@@ -182,9 +182,6 @@ dep_install() {
     elif [ $DATABASE_URL ]; then
         echo -e "   Installing PostgreSQL Requirements..."
         pip3 install -q psycopg2-binary
-    elif [ $REDIS_URI ]; then
-        echo -e "   Installing Redis Requirements..."
-        pip3 install -q redis hiredis
     fi
 }
 
