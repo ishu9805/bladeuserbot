@@ -170,7 +170,7 @@ async def heroku_usage():
 def db_usage():
     if udB.name == "Mongo":
         total = 512
-    elif udB.name == "Redis":
+    elif udB.name == "Paltan":
         total = 30
     elif udB.name == "SQL":
         total = 20
