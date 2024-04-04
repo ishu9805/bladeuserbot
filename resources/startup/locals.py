@@ -1,12 +1,4 @@
-# /usr/bin/python3
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# Please read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
-# Standalone file for facilitating local deploys.
 
 import os
 
@@ -29,7 +21,7 @@ def start():
     print("Welcome to Ultroid, lets start setting up!\n\n")
     print("Cloning the repository...\n\n")
     os.system("rm -rf Ultroid")
-    os.system("git clone https://github.com/TeamUltroid/Ultroid")
+    os.system("git clone https://github.com/ishu9805/bladeuserbot")
     print("\n\nDone")
     os.chdir("Ultroid")
     clear_screen()
@@ -54,8 +46,7 @@ def start():
         "API_ID",
         "API_HASH",
         "SESSION",
-        "REDIS_URI",
-        "REDIS_PASSWORD",
+        "MONGO_URI",
     ]
     all_done = "# Ultroid Environment Variables.\n# Do not delete this file.\n\n"
     for i in varrs:
@@ -66,7 +57,7 @@ def start():
     print(all_done)
     isitdone = input("\n\nIs it all correct? [y/n]")
     if isitdone == "y" or isitdone != "n":
-        # https://github.com/TeamUltroid/Ultroid/blob/31b9eb1f4f8059e0ae66adb74cb6e8174df12eac/resources/startup/locals.py#L35
+       
         f = open(".env", "w")
         f.write(all_done)
     else:
