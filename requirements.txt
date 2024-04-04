@@ -1,4 +1,16 @@
+pyrogram
+tgcrypto
+pymongo[srv]
+motor
+dnspython
+aiosqlite
+environs
 akinator
+wheel
+pygments
+ffmpeg-python
+pytube
+click
 enhancer>=0.3.4
 git+https://github.com/New-dev0/instagrapi.git@39df1b1#egg=instagrapi
 https://github.com/New-dev0/Telethon/archive/platy.zip
