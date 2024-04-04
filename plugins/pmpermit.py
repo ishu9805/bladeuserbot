@@ -212,10 +212,10 @@ if udB.get_key("PMSETTING"):
         )
     )
     async def permitpm(event):
-        inline_pm = Redis("INLINE_PM") or False
+        inline_pm = Paltan("INLINE_PM") or False
         user = event.sender
         if not keym.contains(user.id) and event.text != UND:
-            if Redis("MOVE_ARCHIVE"):
+            if Paltan("MOVE_ARCHIVE"):
                 try:
                     await ultroid_bot.edit_folder(user.id, folder=1)
                 except BaseException as er:
