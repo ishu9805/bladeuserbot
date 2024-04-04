@@ -75,7 +75,7 @@ from telethon.errors.rpcerrorlist import (
 )
 
 from . import (
-    Redis,
+    Paltan,
     async_searcher,
     download_file,
     get_string,
@@ -96,7 +96,7 @@ async def _(event):
     ret, frame = img.read()
     cv2.imwrite("ult.jpg", frame)
     if udB.get_key("DEEP_API"):
-        key = Redis("DEEP_API")
+        key = Paltan("DEEP_API")
     else:
         key = "quickstart-QUdJIGlzIGNvbWluZy4uLi4K"
     r = requests.post(
