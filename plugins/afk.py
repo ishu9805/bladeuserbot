@@ -110,7 +110,7 @@ async def remove_afk(event):
 
 
 async def on_afk(event):
-    if event.is_private and Redis("PMSETTING") and not is_approved(event.chat_id):
+    if event.is_private and Paltan("PMSETTING") and not is_approved(event.chat_id):
         return
     elif "afk" in event.text.lower():
         return
