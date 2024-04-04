@@ -17,7 +17,7 @@
    Get db value of the given key.
 
 • `{i}get keys`
-   Get all redis keys.
+   Get all paltan keys.
 """
 
 import os
@@ -39,12 +39,12 @@ async def get_var(event):
             return await eor(x, "Such a var doesn't exist!", time=5)
     if opt == "var":
         c = 0
-        # try redis
+        # try Paltan
         val = udB.get_key(varname)
         if val is not None:
             c += 1
             await x.edit(
-                f"**Variable** - `{varname}`\n**Value**: `{val}`\n**Type**: Redis Key."
+                f"**Variable** - `{varname}`\n**Value**: `{val}`\n**Type**: Paltan Key."
             )
         # try env vars
         val = os.getenv(varname)
@@ -59,11 +59,11 @@ async def get_var(event):
 
     elif opt == "type":
         c = 0
-        # try redis
+        # try Paltan
         val = udB.get_key(varname)
         if val is not None:
             c += 1
-            await x.edit(f"**Variable** - `{varname}`\n**Type**: Redis Key.")
+            await x.edit(f"**Variable** - `{varname}`\n**Type**: Paltan Key.")
         # try env vars
         val = os.getenv(varname)
         if val is not None:
