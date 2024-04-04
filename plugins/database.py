@@ -1,10 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
 
 from . import get_help
 
@@ -13,7 +6,7 @@ __doc__ = get_help("help_database")
 
 import re
 
-from . import Redis, eor, get_string, udB, ultroid_cmd
+from . import Paltan, eor, get_string, udB, ultroid_cmd
 
 
 @ultroid_cmd(pattern="setdb( (.*)|$)", fullsudo=True)
@@ -63,7 +56,7 @@ async def _(ult):
         return await ult.eor("`Provide Keys name to rename..`")
     delim = " " if re.search("[|]", match) is None else " | "
     data = match.split(delim)
-    if Redis(data[0]):
+    if Paltan(data[0]):
         try:
             udB.rename(data[0], data[1])
             await eor(
