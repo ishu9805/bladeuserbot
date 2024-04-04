@@ -1,3 +1,5 @@
+httpx
+libcst
 pyrogram
 tgcrypto
 pymongo[srv]
