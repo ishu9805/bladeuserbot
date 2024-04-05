@@ -50,18 +50,10 @@
 import os
 from . import LOGS, con
 
-try:
-    import cv2
-except ImportError:
-    LOGS.error(f"{__file__}: OpenCv not Installed.")
+import cv2
 
 import numpy as np
-
-try:
-    from PIL import Image
-except ImportError:
-    Image = None
-    LOGS.info(f"{__file__}: PIL  not Installed.")
+from PIL import Image
 from telegraph import upload_file as upf
 from telethon.errors.rpcerrorlist import (
     ChatSendMediaForbiddenError,
