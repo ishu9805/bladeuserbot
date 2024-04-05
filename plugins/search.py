@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+
 """
 ✘ Commands Available -
 
@@ -32,10 +27,7 @@ try:
     from PIL import Image
 except ImportError:
     Image = None
-try:
-    import cv2
-except ImportError:
-    cv2 = None
+
 from telethon.tl.types import DocumentAttributeAudio
 
 from pyUltroid.fns.misc import google_search
