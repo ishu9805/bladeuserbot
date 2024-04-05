@@ -223,6 +223,22 @@ if run_as_module:
         )
 
    
+ @run_async
+    def gen_chlog(repo, diff):
+        """Generate Changelogs..."""
+        UPSTREAM_REPO_URL = "https://github.com/ishu9805/bladeuserbot.git"
+        ac_br = repo.active_branch.name
+        ch_log = tldr_log = ""
+        ch = f"<b>Ultroid {ultroid_version} updates for <a href={UPSTREAM_REPO_URL}/tree/{ac_br}>[{ac_br}]</a>:</b>"
+        ch_tl = f"Ultroid {ultroid_version} updates for {ac_br}:"
+        d_form = "%d/%m/%y || %H:%M"
+        for c in repo.iter_commits(diff):
+            ch_log += f"\n\n💬 <b>{c.count()}</b> 🗓 <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b><a href={UPSTREAM_REPO_URL.rstrip('/')}/commit/{c}>[{c.summary}]</a></b> 👨‍💻 <code>{c.author}</code>"
+            tldr_log += f"\n\n💬 {c.count()} 🗓 [{c.committed_datetime.strftime(d_form)}]\n[{c.summary}] 👨‍💻 {c.author}"
+        if ch_log:
+            return str(ch + ch_log), str(ch_tl + tldr_log)
+        return ch_log, tldr_log
+
 
 
 # --------------------------------------------------------------------- #
@@ -248,7 +264,37 @@ async def bash(cmd, run_code=0):
 # ---------------------------UPDATER-------------------------------- #
 # Will add in class
 
+async def updater():
+    from .. import LOGS
 
+    try:
+        off_repo = Repo().remotes[0].config_reader.get("url").replace(".git", "")
+    except Exception as er:
+        LOGS.exception(er)
+        return
+    try:
+        repo = Repo()
+    except NoSuchPathError as error:
+        LOGS.info(f"`directory {error} is not found`")
+        Repo().__del__()
+        return
+    except GitCommandError as error:
+        LOGS.info(f"`Early failure! {error}`")
+        Repo().__del__()
+        return
+    except InvalidGitRepositoryError:
+        repo = Repo.init()
+        origin = repo.create_remote("upstream", off_repo)
+        origin.fetch()
+        repo.create_head("main", origin.refs.main)
+        repo.heads.main.set_tracking_branch(origin.refs.main)
+        repo.heads.main.checkout(True)
+    ac_br = repo.active_branch.name
+    repo.create_remote("upstream", off_repo) if "upstream" not in repo.remotes else None
+    ups_rem = repo.remote("upstream")
+    ups_rem.fetch(ac_br)
+    changelog, tl_chnglog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
+    return bool(changelog)
 
 # ----------------Fast Upload/Download----------------
 # @1danish_00 @new-dev0 @buddhhu
