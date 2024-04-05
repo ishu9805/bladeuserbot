@@ -226,3 +226,39 @@ class SqlDB(_BaseDatabase):
         return True
 
 
+class LocalDB(_BaseDatabase):
+    def __init__(self):
+        self.db = Database("ultroid")
+        self.get = self.db.get
+        self.set = self.db.set
+        self.delete = self.db.delete
+        super().__init__()
+
+    @property
+    def name(self):
+        return "LocalDB"
+
+    def keys(self):
+        return self._cache.keys()
+
+    def __repr__(self):
+        return f"<Ultroid.LocalDB\n -total_keys: {len(self.keys())}\n>"
+
+
+def UltroidDB():
+    _er = False
+    from .. import HOSTED_ON
+
+    try:
+        if MongoClient:
+            return MongoDB(Var.MONGO_URI)
+        elif psycopg2:
+            return SqlDB(Var.DATABASE_URL)
+        else:
+            LOGS.critical(
+                "No DB requirement fullfilled!\nPlease install redis, mongo or sql dependencies...\nTill then using local file as database."
+            )
+            return LocalDB()
+    except BaseException as err:
+        LOGS.exception(err)
+    exit()
