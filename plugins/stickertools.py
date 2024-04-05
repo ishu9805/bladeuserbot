@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+
 """
 ✘ Commands Available -
 
@@ -28,10 +23,7 @@ import os
 import random
 from os import remove
 
-try:
-    import cv2
-except ImportError:
-    cv2 = None
+
 try:
     import numpy as np
 except ImportError:
@@ -171,16 +163,6 @@ async def hehe(args):
         ):
             emoji = message.media.document.attributes[1].alt
 
-    elif message.file and "video" in message.file.mime_type.split("/"):
-        xy = await message.download_media()
-        if (message.file.duration or 0) <= 10:
-            is_vid = True
-            photo = await con.create_webm(xy)
-        else:
-            y = cv2.VideoCapture(xy)
-            heh, lol = y.read()
-            cv2.imwrite("ult.webp", lol)
-            photo = "ult.webp"
     elif message.file and "tgsticker" in message.file.mime_type:
         await ultroid_bot.download_file(
             message.media.document,
@@ -466,9 +448,7 @@ async def ultiny(event):
         file = "ult.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".webm", ".mp4")):
-        iik = cv2.VideoCapture(ik)
         dani, busy = iik.read()
-        cv2.imwrite("i.png", busy)
         fil = "i.png"
         im = Image.open(fil)
         z, d = im.size
