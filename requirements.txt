@@ -1,4 +1,4 @@
-OpenCv
+opencv-python==4.9.0.80
 telethon==1.34.0
 httpx
 libcst
