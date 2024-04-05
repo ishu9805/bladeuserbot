@@ -36,7 +36,7 @@ inspect313==0.1.0
 datetime
 asyncio
 youtube-search-python==1.6.6
-youtube-search2==2.1.2
+youtube-search2==2.1.6
 telegraph
 apiclient
 aiohttp==3.9.3
