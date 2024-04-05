@@ -28,13 +28,10 @@
             "description": "Session String (telethon or pyrogram) for your telegram user account. The userbot will NOT work without a session string!!",
             "value": ""
         },
-        "REDIS_URI": {
+        "MONGO_URI": {
             "description": "Redis endpoint URL, from redislabs.com",
             "value": ""
-        },
-        "REDIS_PASSWORD": {
-            "description": "Redis endpoint password, from redislabs.com",
-            "value": ""
+            "required": true
         },
         "HEROKU_API": {
             "description": "Heroku API token. Mandatory for Heroku Deploy...",
@@ -45,7 +42,11 @@
             "description": "Name of your Heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
             "value": "",
             "required": false
-        }
+        }, 
+        "ENV": {
+        "description":"env"
+        "value": ""
+        "required": true
     },
     "formation": {
         "ultroid": {
