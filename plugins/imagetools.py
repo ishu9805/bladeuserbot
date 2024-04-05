@@ -48,7 +48,6 @@
     Create a Pixelated Image..
 """
 import os
-import cv2
 from . import LOGS, con
 
 try:
