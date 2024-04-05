@@ -222,23 +222,7 @@ if run_as_module:
             f"{sys.executable} -m pip install --no-cache-dir -r requirements.txt"
         )
 
-    @run_async
-    def gen_chlog(repo, diff):
-        """Generate Changelogs..."""
-        UPSTREAM_REPO_URL = (
-            Repo().remotes[0].config_reader.get("url").replace(".git", "")
-        )
-        ac_br = repo.active_branch.name
-        ch_log = tldr_log = ""
-        ch = f"<b>Ultroid {ultroid_version} updates for <a href={UPSTREAM_REPO_URL}/tree/{ac_br}>[{ac_br}]</a>:</b>"
-        ch_tl = f"Ultroid {ultroid_version} updates for {ac_br}:"
-        d_form = "%d/%m/%y || %H:%M"
-        for c in repo.iter_commits(diff):
-            ch_log += f"\n\n💬 <b>{c.count()}</b> 🗓 <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b><a href={UPSTREAM_REPO_URL.rstrip('/')}/commit/{c}>[{c.summary}]</a></b> 👨‍💻 <code>{c.author}</code>"
-            tldr_log += f"\n\n💬 {c.count()} 🗓 [{c.committed_datetime.strftime(d_form)}]\n[{c.summary}] 👨‍💻 {c.author}"
-        if ch_log:
-            return str(ch + ch_log), str(ch_tl + tldr_log)
-        return ch_log, tldr_log
+   
 
 
 # --------------------------------------------------------------------- #
