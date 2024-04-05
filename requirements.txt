@@ -20,7 +20,7 @@ enhancer>=0.3.4
 google-api-python-client==2.125.0
 htmlwebshot==0.1.2
 lottie==0.7.0
-lxml==5.2.1
+lxml==5.1.0
 numpy>=1.25.4
 oauth2client
 opencv-python-headless
