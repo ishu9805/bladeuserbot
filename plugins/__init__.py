@@ -28,7 +28,7 @@ from strings import get_help, get_string
 
 udB: Database
 
-Redis = udB.get_key
+Paltan = udB.get_key
 con = TgConverter
 quotly = Quotly()
 OWNER_NAME = ultroid_bot.full_name
