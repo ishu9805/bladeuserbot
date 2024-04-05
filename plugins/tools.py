@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+
 """
 ✘ Commands Available -
 
@@ -42,10 +37,6 @@ import os
 import secrets
 from asyncio.exceptions import TimeoutError as AsyncTimeout
 
-try:
-    import cv2
-except ImportError:
-    cv2 = None
 
 try:
     from playwright.async_api import async_playwright
