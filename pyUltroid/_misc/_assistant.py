@@ -1,10 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
-
 import inspect
 import re
 from traceback import format_exc
@@ -103,7 +96,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                         description="(c) TeamUltroid",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://graph.org/file/dde85d441fa051a0d7d1d.jpg",
+                            "https://telegra.ph/file/c54425ad5dff5526aa956.jpg",
                             0,
                             "image/jpeg",
                             [],
