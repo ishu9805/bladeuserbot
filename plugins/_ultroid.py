@@ -1,9 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 from telethon.errors import (
     BotMethodInvalidError,
@@ -15,17 +9,17 @@ from . import LOG_CHANNEL, LOGS, Button, asst, eor, get_string, ultroid_cmd
 
 REPOMSG = """
 • **ULTROID USERBOT** •\n
-• Repo - [Click Here](https://github.com/TeamUltroid/Ultroid)
-• Addons - [Click Here](https://github.com/TeamUltroid/UltroidAddons)
-• Support - @UltroidSupportChat
+• Repo - [Click Here](https://github.com/ishu9805/bladeuserbot)
+• Addons - [Click Here](https://github.com/ishu9805/addons)
+• Support - @Blade_x_community
 """
 
 RP_BUTTONS = [
     [
-        Button.url(get_string("bot_3"), "https://github.com/TeamUltroid/Ultroid"),
-        Button.url("Addons", "https://github.com/TeamUltroid/UltroidAddons"),
+        Button.url(get_string("bot_3"), "https://github.com/ishu9805/bladeuserbot"),
+        Button.url("Addons", "https://github.com/ishu9805/addons"),
     ],
-    [Button.url("Support Group", "t.me/UltroidSupportChat")],
+    [Button.url("Support Group", "t.me/@Blade_x_community")],
 ]
 
 ULTSTRING = """🎇 **Thanks for Deploying Ultroid Userbot!**
