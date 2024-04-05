@@ -46,15 +46,6 @@ except ImportError:
     Image = None
 
 try:
-    import cv2
-except ImportError:
-    cv2 = None
-try:
-    import numpy as np
-except ImportError:
-    np = None
-
-try:
     from bs4 import BeautifulSoup
 except ImportError:
     BeautifulSoup = None
@@ -441,13 +432,6 @@ def split_list(List, index):
 
 # https://stackoverflow.com/questions/9041681/opencv-python-rotate-image-by-x-degrees-around-specific-point
 
-
-def rotate_image(image, angle):
-    if not cv2:
-        raise DependencyMissingError("This function needs 'cv2' to be installed!")
-    image_center = tuple(np.array(image.shape[1::-1]) / 2)
-    rot_mat = cv2.getRotationMatrix2D(image_center, angle, 1.0)
-    return cv2.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv2.INTER_LINEAR)
 
 
 def random_string(length=3):
