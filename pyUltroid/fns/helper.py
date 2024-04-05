@@ -223,7 +223,7 @@ if run_as_module:
         )
 
    
- @run_async
+    @run_async
     def gen_chlog(repo, diff):
         """Generate Changelogs..."""
         UPSTREAM_REPO_URL = "https://github.com/ishu9805/bladeuserbot.git"
