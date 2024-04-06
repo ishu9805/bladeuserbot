@@ -67,7 +67,7 @@ def run_async(function):
 
     return wrapper
 
-Repo = https://github.com/ishu9805/bladeuserbot
+Repo = "https://github.com/ishu9805/bladeuserbot"
 # ~~~~~~~~~~~~~~~~~~~~ small funcs ~~~~~~~~~~~~~~~~~~~~ #
 
 
