@@ -1,3 +1,4 @@
+
 import asyncio
 import math
 import os
@@ -29,7 +30,6 @@ except ImportError:
     heroku3 = None
 
 try:
-    from git import Repo
     from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 except ImportError:
     Repo = None
@@ -67,7 +67,7 @@ def run_async(function):
 
     return wrapper
 
-
+Repo = https://github.com/ishu9805/bladeuserbot
 # ~~~~~~~~~~~~~~~~~~~~ small funcs ~~~~~~~~~~~~~~~~~~~~ #
 
 
@@ -222,11 +222,12 @@ if run_as_module:
             f"{sys.executable} -m pip install --no-cache-dir -r requirements.txt"
         )
 
-   
     @run_async
     def gen_chlog(repo, diff):
         """Generate Changelogs..."""
-        UPSTREAM_REPO_URL = "https://github.com/ishu9805/bladeuserbot.git"
+        UPSTREAM_REPO_URL = (
+            Repo().remotes[0].config_reader.get("url").replace(".git", "")
+        )
         ac_br = repo.active_branch.name
         ch_log = tldr_log = ""
         ch = f"<b>Ultroid {ultroid_version} updates for <a href={UPSTREAM_REPO_URL}/tree/{ac_br}>[{ac_br}]</a>:</b>"
@@ -238,7 +239,6 @@ if run_as_module:
         if ch_log:
             return str(ch + ch_log), str(ch_tl + tldr_log)
         return ch_log, tldr_log
-
 
 
 # --------------------------------------------------------------------- #
@@ -256,13 +256,46 @@ async def bash(cmd, run_code=0):
     err = stderr.decode().strip() or None
     out = stdout.decode().strip()
     if not run_code and err:
-        if match := re.match(r"\/bin\/sh: (.*): ?(\w+): not found", err):
+        if match := re.match("\/bin\/sh: (.*): ?(\w+): not found", err):
             return out, f"{match.group(2).upper()}_NOT_FOUND"
     return out, err
 
 
 # ---------------------------UPDATER-------------------------------- #
 # Will add in class
+
+
+async def updater():
+    from .. import LOGS
+
+    try:
+        off_repo = Repo().remotes[0].config_reader.get("url").replace(".git", "")
+    except Exception as er:
+        LOGS.exception(er)
+        return
+    try:
+        repo = Repo()
+    except NoSuchPathError as error:
+        LOGS.info(f"`directory {error} is not found`")
+        Repo().__del__()
+        return
+    except GitCommandError as error:
+        LOGS.info(f"`Early failure! {error}`")
+        Repo().__del__()
+        return
+    except InvalidGitRepositoryError:
+        repo = Repo.init()
+        origin = repo.create_remote("upstream", off_repo)
+        origin.fetch()
+        repo.create_head("main", origin.refs.main)
+        repo.heads.main.set_tracking_branch(origin.refs.main)
+        repo.heads.main.checkout(True)
+    ac_br = repo.active_branch.name
+    repo.create_remote("upstream", off_repo) if "upstream" not in repo.remotes else None
+    ups_rem = repo.remote("upstream")
+    ups_rem.fetch(ac_br)
+    changelog, tl_chnglog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
+    return bool(changelog)
 
 
 # ----------------Fast Upload/Download----------------
