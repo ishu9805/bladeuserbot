@@ -240,8 +240,8 @@ async def autopilot():
         try:
             r = await ultroid_bot(
                 CreateChannelRequest(
-                    title="My Ultroid Logs",
-                    about="My Ultroid Log Group\n\n Join @TeamUltroid",
+                    title="Mʏ メ Ɓ ʟ ᴀ ᴅ ᴇ メ Lᴏɢ",
+                    about="Mʏ Ɓ ʟ ᴀ ᴅ ᴇ メ Lᴏɢ  Group\n\n Join @Blade_x_community",
                     megagroup=True,
                 ),
             )
