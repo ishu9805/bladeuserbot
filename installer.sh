@@ -102,7 +102,7 @@ clone_repo() {
     cd $DIR
     if [ -d $DIR ]; then
         if [ -d $DIR/.git ]; then
-            echo -e "Updating Ultroid ${BRANCH}... "
+            echo -e "Updating bladeuserbot ${BRANCH}... "
             cd $DIR
             git pull
             currentbranch="$(git rev-parse --abbrev-ref HEAD)"
@@ -133,7 +133,7 @@ clone_repo() {
             export BRANCH="main"
         fi
         mkdir -p $DIR
-        echo -e "Cloning Ultroid ${BRANCH}... "
+        echo -e "Cloning bladeuserbot ${BRANCH}... "
         git clone -b $BRANCH $REPO $DIR
     fi
 }
@@ -186,7 +186,7 @@ dep_install() {
 }
 
 main() {
-    echo -e "Starting Ultroid Setup..."
+    echo -e "Starting bladeuserbot Setup..."
     if [ -d "pyUltroid" ] && [ -d "resources" ] && [ -d "plugins" ]; then
         DIR=$CURRENT_DIR
     fi
