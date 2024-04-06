@@ -3,7 +3,7 @@
 REPO="https://github.com/ishu9805/bladeuserbot.git"
 CURRENT_DIR="$(pwd)"
 ENV_FILE_PATH=".env"
-DIR="/root/TeamUltroid"
+DIR="/root/ishu9805"
 
 while [ $# -gt 0 ]; do
     case "$1" in
