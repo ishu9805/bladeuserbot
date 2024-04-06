@@ -222,7 +222,7 @@ if run_as_module:
             f"{sys.executable} -m pip install --no-cache-dir -r requirements.txt"
         )
 
- @run_async
+    @run_async
     def gen_chlog(repo, diff):
         """Generate Changelogs..."""
         UPSTREAM_REPO_URL = (
