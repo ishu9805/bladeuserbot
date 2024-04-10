@@ -1,9 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ Commands Available -
 
@@ -816,7 +810,7 @@ async def in_pm_ans(event):
                 await event.builder.document(
                     res,
                     title="Inline PmPermit",
-                    description="~ @TeamUltroid",
+                    description="~ @Blade_x_community",
                     text=msg_,
                     buttons=buttons,
                     link_preview=False,
@@ -833,7 +827,7 @@ async def in_pm_ans(event):
                 title="Inline PMPermit.",
                 type=_type,
                 text=msg_,
-                description="@TeamUltroid",
+                description="@Blade_x_community",
                 include_media=include_media,
                 buttons=buttons,
                 thumb=cont,
