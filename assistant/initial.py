@@ -1,10 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
 import re
 
 from . import *
@@ -17,7 +10,7 @@ STRINGS = {
 
 🧿 Ultroid is Pluggable and powerful Telethon Userbot, made in Python from Scratch. It is Aimed to Increase Security along with Addition of Other Useful Features.
 
-❣ Made by **@TeamUltroid**""",
+❣ Made by **@blade_x_community**""",
     3: """**💡• FAQs •**
 
 -> [Username Tracker](https://t.me/UltroidUpdates/24)
@@ -38,7 +31,7 @@ STRINGS = {
   - `{HNDLR}help`
   - `{HNDLR}cmds`""",
     5: """• **For Any Other Query or Suggestion**
-  - Move to **@UltroidSupportChat**.
+  - Move to **@blade_x_community**.
 
 • Thanks for Reaching till END.""",
 }
