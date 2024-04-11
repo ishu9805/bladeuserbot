@@ -162,7 +162,7 @@ if run_as_module:
             output = "**Plugin** - `{}`\n".format(plug)
             for i in HELP[plug]:
                 output += i
-            output += "\n© @TeamUltroid"
+            output += "\n© @blade_x_community"
             await eod(ok, f"✓ `Ultroid - Installed`: `{plug}` ✓\n\n{output}")
         elif plug in CMD_HELP:
             output = f"Plugin Name-{plug}\n\n✘ Commands Available-\n\n"
