@@ -1,4 +1,4 @@
-from pyUltroid._misc._decorators import ultroid_cmd
-from pyUltroid.fns.helper import inline_mention
+from blade._misc._decorators import blade_cmd
+from blade.fns.helper import inline_mention
 
 from .. import *
