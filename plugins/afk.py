@@ -152,8 +152,8 @@ async def on_afk(event):
 
 
 if udB.get_key("AFK_DB"):
-    ultroid_bot.add_handler(remove_afk, events.NewMessage(outgoing=True))
-    ultroid_bot.add_handler(
+    blade_x_userbot_bot.add_handler(remove_afk, events.NewMessage(outgoing=True))
+    blade_x_userbot_bot.add_handler(
         on_afk,
         events.NewMessage(
             incoming=True, func=lambda e: bool(e.mentioned or e.is_private)
