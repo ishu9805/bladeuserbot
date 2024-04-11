@@ -4,9 +4,9 @@ __doc__ = get_help("help_autoban")
 
 from telethon import events
 
-from pyUltroid.dB.base import KeyManager
+from blade.dB.base import KeyManager
 
-from . import LOGS, asst, ultroid_bot, ultroid_cmd
+from . import LOGS, asst, blade_x_userbot_bot, blade_cmd
 
 Keym = KeyManager("DND_CHATS", cast=list)
 
@@ -25,7 +25,7 @@ async def dnd_func(event):
     await event.delete()
 
 
-@ultroid_cmd(
+@blade_cmd(
     pattern="autokick (on|off)$",
     admins_only=True,
     manager=True,
