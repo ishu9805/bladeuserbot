@@ -1,3 +1,4 @@
+
 from . import get_help
 
 __doc__ = get_help("help_antiflood")
@@ -7,17 +8,17 @@ import re
 
 from telethon.events import NewMessage as NewMsg
 
-from pyUltroid.dB import DEVLIST
-from pyUltroid.dB.antiflood_db import get_flood, get_flood_limit, rem_flood, set_flood
-from pyUltroid.fns.admins import admin_check
+from blade.dB import DEVLIST
+from blade.dB.antiflood_db import get_flood, get_flood_limit, rem_flood, set_flood
+from blade.fns.admins import admin_check
 
-from . import Button, Paltan, asst, callback, eod, get_string, ultroid_bot, ultroid_cmd
+from . import Button, Paltan, asst, callback, eod, get_string, blade_x_userbot_bot, blade_x_userbot_cmd
 
 _check_flood = {}
 
 if Paltan("ANTIFLOOD"):
 
-    @ultroid_bot.on(
+    @blade_x_userbot_bot.on(
         NewMsg(
             chats=list(get_flood().keys()),
         ),
@@ -67,15 +68,15 @@ async def unmuting(e):
     ino = (e.data_match.group(1)).decode("UTF-8").split("_")
     user = int(ino[0])
     chat = int(ino[1])
-    user_name = (await ultroid_bot.get_entity(user)).first_name
-    chat_title = (await ultroid_bot.get_entity(chat)).title
-    await ultroid_bot.edit_permissions(chat, user, send_messages=True)
+    user_name = (await blade_x_userbot_bot.get_entity(user)).first_name
+    chat_title = (await blade_x_userbot_bot.get_entity(chat)).title
+    await blade_x_userbot_bot.edit_permissions(chat, user, send_messages=True)
     await e.edit(
         f"#Antiflood\n\n`Unmuted `[{user_name}](tg://user?id={user})` in {chat_title}`"
     )
 
 
-@ultroid_cmd(
+@blade_x_userbot_cmd(
     pattern="setflood ?(\\d+)",
     admins_only=True,
 )
@@ -89,7 +90,7 @@ async def setflood(e):
         return await eod(e, get_string("antiflood_4").format(input_))
 
 
-@ultroid_cmd(
+@blade_x_userbot_cmd(
     pattern="remflood$",
     admins_only=True,
 )
@@ -104,7 +105,7 @@ async def remove_flood(e):
     await e.eor(get_string("antiflood_2"), time=5)
 
 
-@ultroid_cmd(
+@blade_x_userbot_cmd(
     pattern="getflood$",
     admins_only=True,
 )
@@ -112,3 +113,4 @@ async def getflood(e):
     if ok := get_flood_limit(e.chat_id):
         return await e.eor(get_string("antiflood_5").format(ok), time=5)
     await e.eor(get_string("antiflood_2"), time=5)
+
