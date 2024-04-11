@@ -11,8 +11,8 @@ from telethon.tl.alltlobjects import LAYER, tlobjects
 from telethon.tl.types import DocumentAttributeAudio as Audio
 from telethon.tl.types import InputWebDocument as wb
 
-from pyUltroid.fns.misc import google_search
-from pyUltroid.fns.tools import (
+from blade.fns.misc import google_search
+from blade.fns.tools import (
     _webupload_cache,
     async_searcher,
     get_ofox,
@@ -162,14 +162,14 @@ async def _(e):
 async def repo(e):
     res = [
         await e.builder.article(
-            title="Ultroid Userbot",
+            title="Blade_X_Userbot",
             description="Userbot | Telethon",
             thumb=wb(ultpic, 0, "image/jpeg", []),
-            text="• **ULTROID USERBOT** •",
+            text="• **BLADE_x_USERBOT** •",
             buttons=SUP_BUTTONS,
         ),
     ]
-    await e.answer(res, switch_pm="Ultroid Repo.", switch_pm_param="start")
+    await e.answer(res, switch_pm="bladeuserbot Repo.", switch_pm_param="start")
 
 
 @in_pattern("go", owner=True)
@@ -567,7 +567,7 @@ async def inline_tl(ult):
             [
                 await ult.builder.article(
                     title="How to Use?",
-                    description="Tl Searcher by Ultroid",
+                    description="Tl Searcher by blade_x_community",
                     url="https://t.me/blade_x_community",
                     text=text,
                 )
