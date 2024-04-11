@@ -12,7 +12,7 @@ from blade.dB import DEVLIST
 from blade.dB.antiflood_db import get_flood, get_flood_limit, rem_flood, set_flood
 from blade.fns.admins import admin_check
 
-from . import Button, Paltan, asst, callback, eod, get_string, blade_x_userbot_bot, blade_x_userbot_cmd
+from . import Button, Paltan, asst, callback, eod, get_string, blade_x_userbot_bot, blade_cmd
 
 _check_flood = {}
 
@@ -76,7 +76,7 @@ async def unmuting(e):
     )
 
 
-@blade_x_userbot_cmd(
+@blade_cmd(
     pattern="setflood ?(\\d+)",
     admins_only=True,
 )
@@ -90,7 +90,7 @@ async def setflood(e):
         return await eod(e, get_string("antiflood_4").format(input_))
 
 
-@blade_x_userbot_cmd(
+@blade_cmd(
     pattern="remflood$",
     admins_only=True,
 )
@@ -105,7 +105,7 @@ async def remove_flood(e):
     await e.eor(get_string("antiflood_2"), time=5)
 
 
-@blade_x_userbot_cmd(
+@blade_cmd(
     pattern="getflood$",
     admins_only=True,
 )
