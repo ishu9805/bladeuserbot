@@ -1,7 +1,7 @@
 {
-    "name": "Blade UserBot",
+    "name": "Ultroid UserBot",
     "description": "Pluggable telegram userbot, made in python using Telethon.",
-    "logo": "https://telegra.ph/file/d56e83313e8eb54f2ca02.jpg",
+    "logo": "https://graph.org/file/031957757a4f6a5191040.jpg",
     "keywords": [
         "Telethon",
         "telegram",
@@ -10,7 +10,7 @@
         "ultroid"
     ],
     "repository": "https://github.com/ishu9805/bladeuserbot",
-    "website": "https://tinydev.in",
+    "website": "https://ultroid.tech",
     "success_url": "https://t.me/Blade_x_community",
     "stack": "container",
     "env": {

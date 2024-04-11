@@ -98,6 +98,7 @@ check_python() {
 }
 
 clone_repo() {
+    # check if blade, startup, plugins folders exist
     cd $DIR
     if [ -d $DIR ]; then
         if [ -d $DIR/.git ]; then
