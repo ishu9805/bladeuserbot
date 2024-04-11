@@ -66,7 +66,7 @@ def load_other_plugins(addons=None, pmbot=None, manager=None, vcbot=None):
             rmtree("addons")
         if not os.path.exists("addons"):
             subprocess.run(
-                f"git clone -q -b {Repo().active_branch} https://github.com/TeamUltroid/UltroidAddons.git addons",
+                f"git clone -q -b {Repo().active_branch} https://github.com/ishu9805/bladeaddons.git addons",
                 shell=True,
             )
         else:
@@ -74,7 +74,7 @@ def load_other_plugins(addons=None, pmbot=None, manager=None, vcbot=None):
 
         if not os.path.exists("addons"):
             subprocess.run(
-                "git clone -q https://github.com/TeamUltroid/UltroidAddons.git addons",
+                "git clone -q https://github.com/ishu9805/bladeaddons.git addons",
                 shell=True,
             )
         if os.path.exists("addons/addons.txt"):
@@ -121,7 +121,7 @@ def load_other_plugins(addons=None, pmbot=None, manager=None, vcbot=None):
                     rmtree("vcbot")
             if not os.path.exists("vcbot"):
                 subprocess.run(
-                    "git clone https://github.com/TeamUltroid/VcBot vcbot", shell=True
+                    "git clone https://github.com/ishu9805/vcbot vcbot", shell=True
                 )
             try:
                 if not os.path.exists("vcbot/downloads"):
