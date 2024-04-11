@@ -10,7 +10,7 @@ from random import choice
 from bs4 import BeautifulSoup as bs
 
 try:
-    from pyUltroid.fns.gDrive import GDriveManager
+    from blade.fns.gDrive import GDriveManager
 except ImportError:
     GDriveManager = None
 from telegraph import upload_file as upl
@@ -18,9 +18,9 @@ from telethon import Button, events
 from telethon.tl.types import MessageMediaWebPage
 from telethon.utils import get_peer_id
 
-from pyUltroid.fns.helper import fast_download, progress
-from pyUltroid.fns.tools import Carbon, async_searcher, get_paste, telegraph_client
-from pyUltroid.startup.loader import Loader
+from blade.fns.helper import fast_download, progress
+from blade.fns.tools import Carbon, async_searcher, get_paste, telegraph_client
+from blade.startup.loader import Loader
 
 from . import *
 
@@ -131,7 +131,7 @@ _buttons = {
         ],
     },
     "chatbot": {
-        "text": "From This Feature U can chat with ppls Via ur Assistant Bot.\n[More info](https://t.me/UltroidUpdates/2)",
+        "text": "From This Feature U can chat with ppls Via ur Assistant Bot.\n[More info](https://t.me/blade_x_community)",
         "buttons": [
             [
                 Button.inline("Cʜᴀᴛ Bᴏᴛ  Oɴ", data="onchbot"),
@@ -147,14 +147,14 @@ _buttons = {
         ],
     },
     "vcb": {
-        "text": "From This Feature U can play songs in group voice chat\n\n[moreinfo](https://t.me/UltroidUpdates/4)",
+        "text": "From This Feature U can play songs in group voice chat\n\n[moreinfo](https://t.me/blade_x_community)",
         "buttons": [
             [Button.inline("VC Sᴇssɪᴏɴ", data="abs_vcs")],
             [Button.inline("« Bᴀᴄᴋ", data="setter")],
         ],
     },
     "oofdm": {
-        "text": "About [Dual Mode](https://t.me/UltroidUpdates/18)",
+        "text": "About [Dual Mode](https://t.me/blade_x_community)",
         "buttons": [
             [
                 Button.inline("Dᴜᴀʟ Mᴏᴅᴇ Oɴ", "dmof"),
@@ -315,7 +315,7 @@ async def update(eve):
         await eve.edit(get_string("clst_1"))
         call_back()
         await bash("git pull && pip3 install -r requirements.txt")
-        execl(sys.executable, sys.executable, "-m", "pyUltroid")
+        execl(sys.executable, sys.executable, "-m", "blade")
 
 
 @callback(re.compile("changes(.*)"), owner=True)
@@ -341,7 +341,7 @@ async def changes(okk):
                 language="md",
             )
             return await okk.edit(
-                f"**• Ultroid Userbot •**{cli}", file=img, buttons=button
+                f"**• blade_x_Userbot •**{cli}", file=img, buttons=button
             )
         except Exception as er:
             LOGS.exception(er)
@@ -349,14 +349,14 @@ async def changes(okk):
     if len(changelog_str) > 1024:
         await okk.edit(get_string("upd_4"))
         await asyncio.sleep(2)
-        with open("ultroid_updates.txt", "w+") as file:
+        with open("blade_updates.txt", "w+") as file:
             file.write(tl_chnglog)
         await okk.edit(
             get_string("upd_5"),
-            file="ultroid_updates.txt",
+            file="blade_updates.txt",
             buttons=button,
         )
-        remove("ultroid_updates.txt")
+        remove("blade_updates.txt")
         return
     await okk.edit(
         changelog_str,
@@ -448,7 +448,7 @@ async def _(e):
         code = await conv.get_response()
         if GDrive._create_token_file(code=code.text):
             await conv.send_message(
-                "`Success!\nYou are all set to use Google Drive with Ultroid Userbot.`",
+                "`Success!\nYou are all set to use Google Drive with blade_x_Userbot.`",
                 buttons=Button.inline("Main Menu", data="setter"),
             )
         else:
@@ -486,7 +486,7 @@ async def _(e):
     if not e.is_private:
         return
     await e.edit(
-        "Click Authorise and send the code.\n\nYou can use your own CLIENT ID and SECRET by [this](https://t.me/UltroidUpdates/37)",
+        "Click Authorise and send the code.\n\nYou can use your own CLIENT ID and SECRET by [this](https://t.me/blade_x_community)",
         buttons=[
             [
                 Button.inline("Folder ID", data="folderid"),
