@@ -5,15 +5,15 @@ from random import shuffle
 
 from telethon.tl.functions.photos import UploadProfilePhotoRequest
 
-from pyUltroid.fns.helper import download_file
-from pyUltroid.fns.tools import get_google_images
+from blade.fns.helper import download_file
+from blade.fns.tools import get_google_images
 
-from . import LOGS, get_help, get_string, udB, ultroid_bot, ultroid_cmd
+from . import LOGS, get_help, get_string, udB, blade_x_userbot_bot, blade_cmd
 
 __doc__ = get_help("help_autopic")
 
 
-@ultroid_cmd(pattern="autopic( (.*)|$)")
+@blade_cmd(pattern="autopic( (.*)|$)")
 async def autopic(e):
     search = e.pattern_match.group(1).strip()
     if udB.get_key("AUTOPIC") and not search:
@@ -62,8 +62,8 @@ if search := udB.get_key("AUTOPIC"):
             return
         img = random.choice(images[search])
         filee = await download_file(img["original"], "resources/downloads/autopic.jpg")
-        file = await ultroid_bot.upload_file(filee)
-        await ultroid_bot(UploadProfilePhotoRequest(file))
+        file = await blade_x_userbot_bot.upload_file(filee)
+        await blade_x_userbot_bot(UploadProfilePhotoRequest(file))
         os.remove(filee)
 
     try:
