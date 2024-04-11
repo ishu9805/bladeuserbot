@@ -25,8 +25,8 @@ from . import _ult_cache
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://github.com/TeamUltroid/Ultroid"),
-        Button.url("• Support •", url="t.me/UltroidSupportChat"),
+        Button.url("• Repo •", url="https://github.com/ishu9805"),
+        Button.url("• Support •", url="t.me/blade_x_support"),
     ],
 ]
 
@@ -568,7 +568,7 @@ async def inline_tl(ult):
                 await ult.builder.article(
                     title="How to Use?",
                     description="Tl Searcher by Ultroid",
-                    url="https://t.me/TeamUltroid",
+                    url="https://t.me/blade_x_community",
                     text=text,
                 )
             ],
@@ -591,7 +591,7 @@ async def inline_tl(ult):
                 await ult.builder.article(
                     title=key.__name__,
                     description=tyyp,
-                    url="https://t.me/TeamUltroid",
+                    url="https://t.me/blade_x_community",
                     text=text[:4000],
                 )
             )
@@ -603,7 +603,7 @@ InlinePlugin.update(
     {
         "Pʟᴀʏ Sᴛᴏʀᴇ Aᴘᴘs": "app telegram",
         "Mᴏᴅᴅᴇᴅ Aᴘᴘs": "mods minecraft",
-        "Sᴇᴀʀᴄʜ Oɴ Gᴏᴏɢʟᴇ": "go TeamUltroid",
+        "Sᴇᴀʀᴄʜ Oɴ Gᴏᴏɢʟᴇ": "go blade_x_community",
         "WʜɪSᴘᴇʀ": "wspr @username Hello🎉",
         "YᴏᴜTᴜʙᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ": "yt Ed Sheeran Perfect",
         "Piston Eval": "run javascript console.log('Hello Ultroid')",
