@@ -1,10 +1,3 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
 from datetime import datetime
 
 from pytz import timezone as tz
@@ -29,7 +22,7 @@ if Owner_info_msg is None:
 
 **Message Forwards** - {udB.get_key("PMBOT")}
 
-**Ultroid [v{ultroid_version}](https://github.com/TeamUltroid/Ultroid), powered by @TeamUltroid**
+**Ultroid [v{ultroid_version}](https://github.com/ishu9805/bladeuserbot), powered by @blade_x_community**
 """
 
 
