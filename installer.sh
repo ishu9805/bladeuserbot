@@ -98,7 +98,6 @@ check_python() {
 }
 
 clone_repo() {
-    # check if pyultroid, startup, plugins folders exist
     cd $DIR
     if [ -d $DIR ]; then
         if [ -d $DIR/.git ]; then
@@ -187,7 +186,7 @@ dep_install() {
 
 main() {
     echo -e "Starting bladeuserbot Setup..."
-    if [ -d "pyUltroid" ] && [ -d "resources" ] && [ -d "plugins" ]; then
+    if [ -d "blade" ] && [ -d "resources" ] && [ -d "plugins" ]; then
         DIR=$CURRENT_DIR
     fi
     if [ -f $ENV_FILE_PATH ]
