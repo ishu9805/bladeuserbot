@@ -19,28 +19,17 @@ def start():
     check_for_py()
 
     print(f"{a}\n\n")
-    print("Welcome to Ultroid, lets start setting up!\n\n")
+    print("Welcome to blade_x_userbot, lets start setting up!\n\n")
     print("Cloning the repository...\n\n")
-    os.system("rm -rf Ultroid")
+    os.system("rm -rf bladeuserbot")
     os.system("git clone https://github.com/ishu9805/bladeuserbot")
     print("\n\nDone")
-    os.chdir("Ultroid")
+    os.chdir("bladeuserbot")
     clear_screen()
     print(a)
     print("\n\nLet's start!\n")
 
-    # generate session if needed.
-    sessionisneeded = input(
-        "Do you want to generate a new session, or have an old session string? [generate/skip]",
-    )
-    if sessionisneeded == "generate":
-        gen_session()
-    elif sessionisneeded != "skip":
-        print(
-            'Please choose "generate" to generate a session string, or "skip" to pass on.\n\nPlease run the script again!',
-        )
-        exit(0)
-
+   
     # start bleck megik
     print("\n\nLets start entering the variables.\n\n")
     varrs = [
@@ -80,7 +69,7 @@ def start():
         print("Skipped!")
     clear_screen()
     print(a)
-    print("\nStarting Ultroid...")
+    print("\nStarting Blade_x_userbot...")
     os.system("sh startup")
 
 
