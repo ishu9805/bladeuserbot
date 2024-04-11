@@ -17,7 +17,7 @@ MSG = f"""
 **Ultroid - UserBot**
 ➖➖➖➖➖➖➖➖➖➖
 **Owner**: [{OWNER}](tg://user?id={ultroid_bot.uid})
-**Support**: @TeamUltroid
+**Support**: @blade_x_userbot
 ➖➖➖➖➖➖➖➖➖➖
 """
 
@@ -25,9 +25,9 @@ IN_BTTS = [
     [
         Button.url(
             "Repository",
-            url="https://github.com/TeamUltroid/Ultroid",
+            url="https://github.com/ishu9805/bladeuserbot",
         ),
-        Button.url("Support", url="https://t.me/UltroidSupportChat"),
+        Button.url("Support", url="https://t.me/blade_x_support"),
     ]
 ]
 
@@ -92,8 +92,8 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                 res = [
                     await event.builder.article(
                         title="Ultroid Userbot",
-                        url="https://t.me/TeamUltroid",
-                        description="(c) TeamUltroid",
+                        url="https://t.me/blade_x_community",
+                        description="(c) blade_x_community",
                         text=MSG,
                         thumb=InputWebDocument(
                             "https://telegra.ph/file/c54425ad5dff5526aa956.jpg",
