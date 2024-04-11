@@ -25,7 +25,7 @@ STRINGS = {
 -> [Also Check](https://t.me/UltroidUpdates/14)
 
 **• To Know About Updates**
-  - Join @TeamUltroid.""",
+  - Join @blade_x_community.""",
     4: f"""• `To Know All Available Commands`
 
   - `{HNDLR}help`
