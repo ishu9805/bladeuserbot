@@ -5,7 +5,7 @@ echo "
             ┃┃┃┗┫┏┫┏┫╋┃┃╋┃
             ┗━┻━┻━┻┛┗━┻┻━┛
 
-      Visit @blade_x_userbot for updates!!
+      Visit @blade_x_support for updates!!
 
 "
 if [ -f .env ] ; then  set -o allexport; source .env; set +o allexport ; fi
