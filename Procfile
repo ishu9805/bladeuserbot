@@ -1,1 +1,1 @@
-worker: python3 -m blade
+worker: python3 -m pyUltroid
