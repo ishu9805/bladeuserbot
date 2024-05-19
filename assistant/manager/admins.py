@@ -2,7 +2,7 @@ import re
 
 from telethon.errors.rpcerrorlist import UserNotParticipantError
 
-from blade import _ult_cache
+from pyUltroid import _ult_cache
 
 from . import *
 
