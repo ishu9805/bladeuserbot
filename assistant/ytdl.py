@@ -19,7 +19,7 @@ from blade.fns.helper import (
     numerize,
     time_formatter,
 )
-from blade.fns.ytdl import dler, get_buttons, get_formats
+from pyUltroid.fns.ytdl import dler, get_buttons, get_formats
 
 from . import LOGS, asst, callback, in_pattern, udB
 
