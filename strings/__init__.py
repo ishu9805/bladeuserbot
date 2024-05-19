@@ -3,13 +3,13 @@ import sys
 from glob import glob
 from typing import Any, Dict, List, Union
 
-from blade import *
-from blade.fns.tools import translate
+from pyUltroid import *
+from pyUltroid.fns.tools import translate
 
 try:
     from yaml import safe_load
 except ModuleNotFoundError:
-    from blade.fns.tools import safe_load
+    from pyUltroid.fns.tools import safe_load
 
 ULTConfig.lang = udB.get_key("language") or os.getenv("LANGUAGE", "en")
 
