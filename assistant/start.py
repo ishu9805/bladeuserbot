@@ -5,9 +5,9 @@ from telethon import Button, events
 from telethon.errors.rpcerrorlist import MessageDeleteForbiddenError
 from telethon.utils import get_display_name
 
-from blade._misc import SUDO_M, owner_and_sudos
-from blade.dB.base import KeyManager
-from blade.fns.helper import inline_mention
+from pyUltroid._misc import SUDO_M, owner_and_sudos
+from pyUltroid.dB.base import KeyManager
+from pyUltroid.fns.helper import inline_mention
 from strings import get_string
 
 from . import *
