@@ -2,8 +2,8 @@ import random
 
 import aiohttp
 
-from blade.dB import DEVLIST
-from blade.fns.admins import admin_check
+from pyUltroid.dB import DEVLIST
+from pyUltroid.fns.admins import admin_check
 
 from . import *
 
