@@ -102,7 +102,7 @@ class Config((object)):
         DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
         BIO_MSG = os.environ.get("BIO_MSG", None)
         LYDIA_API = os.environ.get("LYDIA_API", None)
-        PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", -69))
+        PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", -1002030192659))
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
         DEEP_AI = os.environ.get("DEEP_AI", None)
         TAG_LOG = os.environ.get("TAG_LOG", None)
