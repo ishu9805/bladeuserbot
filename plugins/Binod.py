@@ -1,7 +1,7 @@
 from userbot.utils import admin_cmd
+from . import *
 
-
-@borg.on(admin_cmd(pattern=r"bid ?(.*)"))
+@ultroid_cmd.on(admin_cmd(pattern=r"bid ?(.*)"))
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
