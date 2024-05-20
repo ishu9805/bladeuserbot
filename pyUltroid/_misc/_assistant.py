@@ -14,10 +14,10 @@ from . import append_or_update, owner_and_sudos
 OWNER = ultroid_bot.full_name
 
 MSG = f"""
-**Ultroid - UserBot**
+**Blade - UserBot**
 ➖➖➖➖➖➖➖➖➖➖
 **Owner**: [{OWNER}](tg://user?id={ultroid_bot.uid})
-**Support**: @blade_x_userbot
+**Support**: @blade_x_support
 ➖➖➖➖➖➖➖➖➖➖
 """
 
