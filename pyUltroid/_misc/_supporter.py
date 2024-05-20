@@ -18,7 +18,8 @@ BOTLOG_CHATID = BOTLOG = udB.get_key("LOG_CHANNEL")
 bot = borg = catub = friday = ultroid_bot
 catub.cat_cmd = ultroid_cmd
 
-black_list_chats = udB.get_key("BLACKLIST_CHATS")
+# Ensure BLACKLIST_CHATS is retrieved as a list, defaulting to an empty list if not found
+black_list_chats = udB.get_key("BLACKLIST_CHATS") or []
 
 
 def admin_cmd(pattern=None, command=None, **args):
@@ -62,7 +63,7 @@ edit_delete = eod
 ENV = bool(os.environ.get("ENV", False))
 
 
-class Config((object)):
+class Config:
     if ENV:
         from .. import asst, udB
 
@@ -78,9 +79,12 @@ class Config((object)):
         TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Ultroid")
         OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
         TG_BOT_USER_NAME_BF_HER = asst.me.username
+
+        # Ensure BLACKLIST_CHATS is retrieved as a list, defaulting to an empty list if not found
         UB_BLACK_LIST_CHAT = [
-            int(blacklist) for blacklist in udB.get_key("BLACKLIST_CHATS")
+            int(blacklist) for blacklist in (udB.get_key("BLACKLIST_CHATS") or [])
         ]
+
         MAX_ANTI_FLOOD_MESSAGES = 10
         ANTI_FLOOD_WARN_MODE = types.ChatBannedRights(
             until_date=None, view_messages=None, send_messages=True
