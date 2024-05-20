@@ -223,18 +223,22 @@ async def uname_stuff(id, uname, name):
     if udB.get_key("USERNAME_LOG"):
         old_ = udB.get_key("USERNAME_DB") or {}
 
-        # Debugging: print the type and value of old_
-        print(f"Type of old_: {type(old_)} - Value of old_: {old_}")
-        
         # Ensure old_ is a dictionary
         if isinstance(old_, str):
-            print("old_ was a string, reinitializing to an empty dictionary")
-            old_ = {}  # Reinitialize as an empty dictionary if it's a string
+            try:
+                old_ = eval(old_)  # Convert string representation of dict to actual dict
+                if not isinstance(old_, dict):
+                    old_ = {}
+            except (SyntaxError, ValueError):
+                old_ = {}  # Reinitialize as an empty dictionary if eval fails
 
         old = old_.get(id)
-        # Ignore Name Logs
+
+        # Ignore Name Logs if there's no change
         if old and old == uname:
             return
+
+        # Logging username changes
         if old and uname:
             await asst.send_message(
                 LOG_CHANNEL,
@@ -251,9 +255,7 @@ async def uname_stuff(id, uname, name):
                 get_string("can_4").format(f"[{name}](tg://user?id={id})", uname),
             )
 
+        # Update the USERNAME_DB
         old_[id] = uname
-        udB.set_key("USERNAME_DB", old_)
+        udB.set_key("USERNAME_DB", str(old_))  # Store the dictionary as a string
 
-
-        old_[id] = uname
-        udB.set_key("USERNAME_DB", old_)
