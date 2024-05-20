@@ -222,6 +222,15 @@ async def uname_change(e):
 async def uname_stuff(id, uname, name):
     if udB.get_key("USERNAME_LOG"):
         old_ = udB.get_key("USERNAME_DB") or {}
+
+        # Debugging: print the type and value of old_
+        print(f"Type of old_: {type(old_)} - Value of old_: {old_}")
+        
+        # Ensure old_ is a dictionary
+        if isinstance(old_, str):
+            print("old_ was a string, reinitializing to an empty dictionary")
+            old_ = {}  # Reinitialize as an empty dictionary if it's a string
+
         old = old_.get(id)
         # Ignore Name Logs
         if old and old == uname:
@@ -241,6 +250,10 @@ async def uname_stuff(id, uname, name):
                 LOG_CHANNEL,
                 get_string("can_4").format(f"[{name}](tg://user?id={id})", uname),
             )
+
+        old_[id] = uname
+        udB.set_key("USERNAME_DB", old_)
+
 
         old_[id] = uname
         udB.set_key("USERNAME_DB", old_)
