@@ -18,9 +18,9 @@ from telethon import Button, events
 from telethon.tl.types import MessageMediaWebPage
 from telethon.utils import get_peer_id
 
-from blade.fns.helper import fast_download, progress
-from blade.fns.tools import Carbon, async_searcher, get_paste, telegraph_client
-from blade.startup.loader import Loader
+from pyUltroid.fns.helper import fast_download, progress
+from pyUltroid.fns.tools import Carbon, async_searcher, get_paste, telegraph_client
+from pyUltroid.startup.loader import Loader
 
 from . import *
 
