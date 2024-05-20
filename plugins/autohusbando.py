@@ -4,12 +4,12 @@
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-#Fixes by Github/ArnabXD | Telegram/Arnab431
+#Edited By @Senku_Ishigamiii from autowaifu plugin
 """
 ✘ Commands Available -
 
-•`{i} autowaifu on/off`
-  This auto show result for @loli_harem_bot.
+•{i} .autohusbando on/off
+  This auto show result for @Collect_your_husbando_bot
   
 """
 import os
@@ -17,23 +17,23 @@ import requests
 from asyncio import sleep
 from bs4 import BeautifulSoup as bs
 from . import *
-XX = "A qt waifu appeared!"
+XX = "A husbando appeared!"
 
-@ultroid_cmd(pattern="autowaifu ?(.*)")
+@ultroid_cmd(pattern="autohusbando ?(.*)")
 async def _(e): 
     args = e.pattern_match.group(1)
-    uff = await eor(e,"`Processing...`")
+    uff = await eor(e,"Processing...")
     if args:
         if args == "on":
-            udB.set("WAIFU","TRUE")
-            return await uff.edit("AutoWaifu - ON")
+            udB.set("HUSBANDO","TRUE")
+            return await uff.edit("AutoHusbando - ON")
         if args == "off":
-            udB.set("WAIFU","FALSE")
-            return await uff.edit("AutoWaifu - OFF")
+            udB.set("HUSBANDO","FALSE")
+            return await uff.edit("AutoHusbando - OFF")
 
-    waifu = udB.get("WAIFU")
-    status = "ON" if waifu == "TRUE" else "OFF"
-    return await uff.edit(f"AutoWaifu - {status}")
+    husbando = udB.get("HUSBANDO")
+    status = "ON" if husbando == "TRUE" else "OFF"
+    return await uff.edit(f"AutoHusbando - {status}")
 
 @ultroid_bot.on(events.NewMessage(incoming=True))
 async def reverse(event):
@@ -41,9 +41,9 @@ async def reverse(event):
         return
     if not XX in event.text:
         return
-    if not event.sender_id == 792028928:
+    if not event.sender_id == 1964681186:
         return
-    if Redis("WAIFU")!="TRUE":
+    if Redis("HUSBANDO")!="TRUE":
         return
     dl = await ultroid_bot.download_media(event.media, "resources/")
     file = {"encoded_image": (dl, open(dl, "rb"))}
