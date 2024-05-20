@@ -12,7 +12,7 @@ from telethon.errors.rpcerrorlist import FilePartLengthInvalidError, MediaEmptyE
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 from telethon.tl.types import InputWebDocument as wb
 
-from blade.fns.helper import (
+from pyUltroid.fns.helper import (
     bash,
     fast_download,
     humanbytes,
