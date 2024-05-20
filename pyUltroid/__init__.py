@@ -96,6 +96,6 @@ else:
 
     from logging import getLogger
 
-    LOGS = getLogger("blade")
+    LOGS = getLogger("pyUltroid")
 
     ultroid_bot = asst = udB = vcClient = None
