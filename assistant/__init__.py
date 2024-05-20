@@ -9,8 +9,8 @@ from pyUltroid.fns.helper import *
 from pyUltroid.fns.tools import get_stored_file
 from strings import get_languages, get_string
 
-OWNER_NAME = blade_x_userbot_cmd.full_name
-OWNER_ID = blade_x_userbot_cmd.uid
+OWNER_NAME = ultroid_bot.full_name
+OWNER_ID = ultroid_bot.uid
 
 AST_PLUGINS = {}
 
