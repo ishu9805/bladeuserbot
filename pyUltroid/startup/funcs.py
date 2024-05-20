@@ -375,7 +375,7 @@ async def customize():
         await asyncio.sleep(1)
         await ultroid_bot.send_message(
             "botfather",
-            f"✨ Powerful Ultroid Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @blade_x_userbot ✨",
+            f"✨ Powerful Ultroid Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @blade_x_support ✨",
         )
         await asyncio.sleep(2)
         await msg.edit("Completed **Auto Customisation** at @BotFather.")
@@ -474,7 +474,7 @@ async def ready():
         BTTS = Button.inline("• Click to Start •", "initft_2")
         udB.set_key("INIT_DEPLOY", "Done")
     else:
-        MSG = f"**Ultroid has been deployed!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**Support**: @blade_x_userbot\n➖➖➖➖➖➖➖➖➖➖"
+        MSG = f"**BLade Userbot has been deployed!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**Support**: @blade_x_support\n➖➖➖➖➖➖➖➖➖➖"
         BTTS, PHOTO = None, None
         prev_spam = udB.get_key("LAST_UPDATE_LOG_SPAM")
         if prev_spam:
