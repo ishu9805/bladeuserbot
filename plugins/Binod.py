@@ -1,7 +1,10 @@
 from userbot.utils import admin_cmd
+import asyncio
+import random
 from . import *
 
-@ultroid_cmd.on(admin_cmd(pattern=r"bid ?(.*)"))
+
+@ultroid_cmd.on(pattern=r"bid")
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
