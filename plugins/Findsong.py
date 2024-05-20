@@ -1,7 +1,7 @@
 import requests
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-
+from . import *
 
 @ultroid_cmd(pattern="findsong$", outgoing=True)
 async def _(event):
