@@ -9,10 +9,6 @@
         "python",
         "ultroid"
     ],
-    "repository": "https://github.com/ishu9805/bladeuserbot",
-    "website": "https://ultroid.tech",
-    "success_url": "https://t.me/Blade_x_community",
-    "stack": "container",
     "env": {
         "API_ID": {
             "description": "You api id, from my.telegram.org or @ScrapperRoBot.",
@@ -43,7 +39,7 @@
             "value": "",
             "required": false
         }
-    }
+   },
         "buildpacks": [
           {
               "url": "heroku/python"
@@ -56,5 +52,5 @@
           }
       ],
       "stack": "container"
-  }
+}
 }
