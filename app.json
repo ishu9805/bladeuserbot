@@ -42,16 +42,19 @@
             "description": "Name of your Heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
             "value": "",
             "required": false
-        }, 
-        "ENV": {
-        "description":"env"
-        "value": ""
-        "required": true
-    },
-    "formation": {
-        "ultroid": {
-            "quantity": 1,
-            "size": "eco"
         }
     }
+        "buildpacks": [
+          {
+              "url": "heroku/python"
+          },
+          {
+              "url": "heroku/nodejs"
+          },
+          {
+              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+          }
+      ],
+      "stack": "container"
+  }
 }
