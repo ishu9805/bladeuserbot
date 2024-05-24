@@ -22,7 +22,8 @@
         },
         "SESSION": {
             "description": "Session String (telethon or pyrogram) for your telegram user account. The userbot will NOT work without a session string!!",
-            "value": ""
+            "value": "",
+            "required": true
         },
         "MONGO_URI": {
             "description": "Redis endpoint URL, from redislabs.com",
